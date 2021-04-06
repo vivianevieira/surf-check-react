@@ -1,0 +1,10 @@
+.SurfCheckLightTideCont {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+}
+
+p {
+  padding-top: 1.5rem;
+  font-size: 1.05rem;
+}
