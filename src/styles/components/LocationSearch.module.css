@@ -1,0 +1,44 @@
+.locationSearchContainer {
+  width: 100%;
+}
+
+.locationSearchContainer input {
+  display: block;
+  width: 100%;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  margin-bottom: 0.8rem;
+  margin-top: 3.5rem;
+  border: 1px solid #bdbdbd;
+  height: 3rem;
+  background-color: e8e8e8;
+}
+
+::placeholder {
+  font-family: 'Inter', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #bdbdbd;
+}
+
+.locationSearchBtn{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.locationSearchBtn button {
+  background-color: #0e4da4;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.8rem;
+  transition: filter 0.2s;
+}
+
+.locationSearchBtn button:hover {
+  filter: brightness(1.15);
+}
+
+.locationSearchBtnMargin {
+  margin-right: 0.5rem;
+}

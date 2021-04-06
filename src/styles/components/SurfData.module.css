@@ -1,0 +1,126 @@
+.SurfDataTitle {
+  display: flex;
+  margin: 1.5rem 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.surfDataLocTitle {
+  font-size: 1.25rem;
+ }
+
+.SurfDataFavBtn {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.SurfDataFavIcon {
+  font-size: 15pt;
+  /* margin-bottom: 0.3rem; */
+  color: #979797;
+}
+
+.SurfDataFavIconHighlighted {
+  font-size: 15pt;
+  color: #0e4da4;
+}
+
+.SurfDataCont {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 9pt;
+}
+
+.SurfDataMapImage {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.SurfDataWaveHeightTitle {
+  color: #cdcaca;
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.SurfDataWaveHeightvalue {
+  font-size: 1.75rem;
+  letter-spacing: 1.7px;
+  font-weight: 500;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.SurfDataSup{
+  font-size: 0.9rem;
+  letter-spacing: 0;
+}
+
+.SurfDataPrimarySwell {
+  font-size: 0.8rem;
+  font-weight: 200;
+  letter-spacing: 0.46px;
+  margin-bottom: 0.5rem;
+}
+
+.SurfDataPrimarySwellTitle,
+.SurfDataWindTitle {
+  color: #cdcaca;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+.SurfDataValues{
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.SurfDataTempCont {
+  display: flex;
+  margin-bottom: 1.7rem;
+}
+
+.SurfDataTempTitle {
+  color: #cdcaca;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.SurfDataWaterTemp {
+  margin-right: 0.5rem;
+}
+
+.SurfDataWaterTemp,
+.SurfDataAirTemp {
+  text-align: center;
+}
+
+.SurfDataWaterTempIcon {
+  color: lightskyblue;
+}
+
+.SurfDataAirTempIcon,
+.SurfDataWaterTempIcon {
+  font-size: 14pt;
+  margin-bottom: 0.2rem;
+}
+
+.SurfDataWindGust {
+  font-size: 0.65rem;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  margin-top: 0.2rem;
+}
+
+@media screen and (min-width: 976px) {
+  .surfDataLocTitle {
+  font-size: 1.5rem;
+ }
+}

@@ -1,0 +1,22 @@
+.FavoritesTitle {
+  display: flex;
+  margin: 1.5rem 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .FavoritesList ul {
+  list-style-type: none;
+  padding-left: 0;
+} */
+
+.FavoritesList td {
+  border-bottom: 1px solid #e8e8e8;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+}
+
+.FavoritesListTable {
+  width: 100%;
+}

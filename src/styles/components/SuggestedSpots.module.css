@@ -1,0 +1,27 @@
+.SuggestedSpotsContainer ul,
+.error-handlig ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li:first-child {
+  margin-top: 1rem;
+}
+
+.SuggestedSpotsContainer a {
+  display: flex;
+  align-items: center;
+}
+
+.SuggestedSpotsContainer li {
+  border-bottom: 1px solid #e8e8e8;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+}
+
+
+
+.SuggestedSpotsFlag {
+  margin-right: 0.5rem;
+}
