@@ -43,7 +43,6 @@ export default function TideData({ location }) {
         }
       });
       const jsonData = await response.json();
-      console.log(jsonData);
 
       const tideDataArray = jsonData.data;
       setTideData(tideDataArray);
@@ -62,6 +61,7 @@ export default function TideData({ location }) {
       <div className={styles.title}>
         <h3>Tide</h3>
       </div>
+      <div className={styles.tableCont}>
       <table>
         <tbody>
           {tideData.map(tide => (
@@ -80,6 +80,7 @@ export default function TideData({ location }) {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
