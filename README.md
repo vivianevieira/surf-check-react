@@ -29,4 +29,4 @@ Try the application live at https://surf-check.netlify.app/.
 
 ## preview
 
-![Image of app](https://vivianevieira.github.io/surf-app-react/surf-app-screen-shot.png)
+![Image of app](https://surf-check.netlify.app/surf_check_screenshot.png)
