@@ -59,7 +59,7 @@ export default function TideData({ location }) {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <h3>Tide</h3>
+        <h3 className={styles.header}>Tide</h3>
       </div>
       <div className={styles.tableCont}>
       <table>
