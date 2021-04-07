@@ -10,7 +10,7 @@ A dynamic front end web application that allows users to search for a surf locat
 
 ## live demo
 
-Try the application live at https://vivianevieira.github.io/surf-app-react/.
+Try the application live at https://surf-check.netlify.app/.
 
 ## features
 * User can search for surf locations by city.
