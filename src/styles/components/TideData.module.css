@@ -1,11 +1,20 @@
+.header {
+  font-family: "Futura-Surfline", Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 14px;
+}
+
 .container {
+  width: 100%;
   font-size: 0.875rem;
   letter-spacing: 0.5px;
 }
 
 .title {
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .container tbody {
@@ -21,4 +30,19 @@
 .container td:first-child {
   font-weight: 400;
   text-transform: capitalize;
+}
+
+.tableCont {
+  display: flex;
+  justify-content: center;
+}
+
+.tableCont table {
+  width: 90%;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    margin-top: 1.5rem;
+  }
 }

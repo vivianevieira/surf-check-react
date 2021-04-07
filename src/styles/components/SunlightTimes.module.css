@@ -1,4 +1,5 @@
 .SunlightTimesCont {
+  width: 100%;
   font-size: 0.875rem;
   letter-spacing: 0.5px;
 }
@@ -10,8 +11,13 @@
 
 .SunlightTimesData {
   display: flex;
+  justify-content: center;
   margin-top: 10px;
   align-items: center;
+}
+
+.SunlightTimesDataRow {
+  padding: 0.2rem;
 }
 
 .SunlightTimesData span {

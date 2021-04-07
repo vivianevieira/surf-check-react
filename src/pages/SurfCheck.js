@@ -19,9 +19,11 @@ export default function SurfCheck () {
     <>
       <SurfCheckHeader location={location} />
       <SurfData surfData={surfData} location={location} loading={loading} />
-      <div className={styles.SurfCheckLightTideCont}>
-        <SunlightTimes location={location} />
-        <TideData location={location} />
+      <div className={styles.SurfCheck}>
+        <div className={styles.SurfCheckCont}>
+          <SunlightTimes location={location} />
+          <TideData location={location} />
+        </div>
       </div>
      </>
     )}

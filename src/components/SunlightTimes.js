@@ -98,10 +98,10 @@ export default function SunlightTimes({ location }) {
           <img src={sunriseImg} alt="" width="35px" />
         </div>
         <div>
-          <div>
+          <div className={styles.SunlightTimesDataRow}>
             First light: <span>{sunlightData.firstLight}</span>
           </div>
-          <div>
+          <div className={styles.SunlightTimesDataRow}>
             Sunrise: <span>{sunlightData.sunriseTime}</span>
           </div>
         </div>
@@ -111,10 +111,10 @@ export default function SunlightTimes({ location }) {
           <img src={sunsetImg} alt="" width="35px" />
         </div>
         <div>
-          <div>
+          <div className={styles.SunlightTimesDataRow}>
             Sunset: <span>{sunlightData.sunsetTime}</span>
           </div>
-          <div>
+          <div className={styles.SunlightTimesDataRow}>
             Last light: <span>{sunlightData.lastLight}</span>
           </div>
         </div>
