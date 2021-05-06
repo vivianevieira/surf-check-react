@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faWater, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faWater, faThermometerHalf, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+
 import globeImg from '../assets/images/globe.png'
 import styles from '../styles/components/SurfData.module.css';
 
@@ -49,42 +50,66 @@ export default function SurfData({ location, loading, surfData }) {
       </div>
       <div className={styles.SurfDataCont}>
         <div>
-          <div className={styles.SurfDataWaveHeightTitle}>Wave Height</div>
+          <div className={styles.SurfDataWaveHeightTitle}>
+            Wave Height
+          </div>
           <div className={styles.SurfDataWaveHeightvalue}>
             {waveHeightValue}
             <span className={styles.SurfDataSup}>ft</span>
           </div>
-          <div className={styles.SurfDataPrimarySwell}>{swellPeriodValue}s {swellDirectionValue}°</div>
-          <div className={styles.SurfDataPrimarySwellTitle}>Secondary Swell</div>
-          <div className={styles.SurfDataValues}>
-            {`${secondarySwellHeightValue}ft at ${secondarySwellPeriodValue}s ${secondarySwellDirectionValue}°`}
+          <div className={styles.SurfDataPrimarySwell}>
+            {swellPeriodValue}s {swellDirectionValue}° <FontAwesomeIcon icon={faArrowDown} size="xs" />
           </div>
-          <div className={styles.SurfDataPrimarySwellTitle}>Wind Swell</div>
+          <div className={styles.SurfDataPrimarySwellTitle}>
+            Secondary Swell
+          </div>
           <div className={styles.SurfDataValues}>
-            {`${windWaveHeightValue}ft at ${windWavePeriodValue}s ${windWaveDirectionValue}°`}
+            {`${secondarySwellHeightValue}ft at ${secondarySwellPeriodValue}s ${secondarySwellDirectionValue}° `}
+            <FontAwesomeIcon icon={faArrowDown} size="sm"/>
+          </div>
+          <div className={styles.SurfDataPrimarySwellTitle}>
+            Wind Swell
+          </div>
+          <div className={styles.SurfDataValues}>
+            {`${windWaveHeightValue}ft at ${windWavePeriodValue}s ${windWaveDirectionValue}° `}
+            <FontAwesomeIcon icon={faArrowDown} size="sm"/>
           </div>
         </div>
         <div>
           <div className={styles.SurfDataTempCont}>
             <div className={styles.SurfDataWaterTemp}>
-              <div className={styles.SurfDataTempTitle}>Water</div>
+              <div className={styles.SurfDataTempTitle}>
+                Water
+              </div>
               <div>
                 <FontAwesomeIcon icon={faWater} size="lg" className={styles.SurfDataWaterTempIcon} />
               </div>
-              <div className={styles.SurfDataValues}>{`${waterTemperatureValue}°F`}</div>
+              <div className={styles.SurfDataValues}>
+                {`${waterTemperatureValue}°F`}
+              </div>
             </div>
             <div className={styles.SurfDataAirTemp}>
-              <div className={styles.SurfDataTempTitle}>Air</div>
+              <div className={styles.SurfDataTempTitle}>
+                Air
+              </div>
               <div>
                 <FontAwesomeIcon icon={faThermometerHalf} size="lg" className={styles.SurfDataAirTempIcon} />
               </div>
-              <div className={styles.SurfDataValues}>{`${airTemperatureValue}°F`}</div>
+              <div className={styles.SurfDataValues}>
+                {`${airTemperatureValue}°F`}
+              </div>
             </div>
           </div>
           <div className={styles.SurfDataWindCont}>
-            <div className={styles.SurfDataWindTitle}>Wind</div>
-            <div className={styles.SurfDataValues}>{`${windSpeedValue}kts ${windDirectionValue}°`}</div>
-            <div className={styles.SurfDataWindGust}>{`(${gustValue}kts gusts)`}</div>
+            <div className={styles.SurfDataWindTitle}>
+              Wind
+            </div>
+            <div className={styles.SurfDataValues}>
+              {`${windSpeedValue}kts ${windDirectionValue}°`}
+            </div>
+            <div className={styles.SurfDataWindGust}>
+              {`(${gustValue}kts gusts)`}
+            </div>
           </div>
         </div>
       </div>
