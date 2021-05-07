@@ -1,13 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import Header from './components/Header';
 import BottomNav from './components/BottomNav';
 import SurfCheck from './pages/SurfCheck';
+
 import { LocSearchProvider } from './contexts/LocSearchContext';
 import { SurfDataProvider } from './contexts/SurfDataContext';
 
+import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from '../src/styles/App.module.css';
 
 function App() {
