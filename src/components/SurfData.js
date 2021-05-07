@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faWater, faThermometerHalf, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faWater, faThermometerHalf, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import MapView from './MapView';
 import globeImg from '../assets/images/globe.png'
