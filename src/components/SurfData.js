@@ -46,10 +46,7 @@ export default function SurfData({ location, loading, surfData }) {
 
   return (
     <>
-      {/* <div>
-        <img src={globeImg} alt="" className={styles.SurfDataMapImage} />
-      </div> */}
-      <MapView />
+      <MapView location={location} />
       <div className={styles.SurfDataCont}>
         <div>
           <div className={styles.SurfDataWaveHeightTitle}>
