@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
+
 import styles from '../styles/components/MapView.module.css';
 
 export default function MapView() {
   const [viewport, setViewport] = useState({
-    latitude: 33.0466108,
-    longitude: -117.2563856,
+    latitude: -28.1676805,
+    longitude: 153.5295271,
     zoom: 8
   });
 
@@ -19,7 +20,11 @@ export default function MapView() {
       width="80%"
       height="100%"
       onViewportChange={(viewport) => setViewport(viewport)}
-    />
+    >
+      <Marker latitude={-28.1676805} longitude={153.5295271} offsetLeft={-20} offsetTop={-10}>
+        <div className={styles.marker}><span></span></div>
+      </Marker>
+     </ReactMapGL>
     </div>
     </>
   );
