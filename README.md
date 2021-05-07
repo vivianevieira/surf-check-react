@@ -7,6 +7,7 @@ A dynamic front end web application that allows users to search for a surf locat
 * React, React Hooks, React Context, React Router
 * CSS Modules
 * Fetch
+* Mapbox GL JS library
 
 ## live demo
 
