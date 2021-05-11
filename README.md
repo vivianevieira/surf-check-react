@@ -24,9 +24,9 @@ Try the application live at https://surf-check.netlify.app/.
 
 
 ## planned additions
-* User can see the location on a global map for the surf spot.
-* User can see forecasted surf conditions for the next 4 days.
-* User can see the high and low tide points.
+* [x] User can see the location on a global map for the surf spot.
+* [x]  User can see the high and low tide points.
+* [ ]  User can see forecasted surf conditions for the next 5 days.
 
 ## preview
 
