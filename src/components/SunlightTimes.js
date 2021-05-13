@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import sunriseImg from '../assets/images/sunrise.png';
 import sunsetImg from '../assets/images/sunset.png';
+import useLocalTime from '../services/hooks/useLocalTime';
 import styles from '../styles/components/SunlightTimes.module.css';
 
 export default function SunlightTimes({ location }) {
@@ -14,23 +15,16 @@ export default function SunlightTimes({ location }) {
 
   const [dateHeader, setDateHeader] = useState('');
 
+  const { locationTime, timeOffset, localOffsetMillis } = useLocalTime(location);
+  console.log(locationTime)
+
   const getSunlightData = async () => {
     const url = 'https://api.stormglass.io/v2/astronomy/';
     const apiKey = '66d9612a-22c0-11eb-a5a9-0242ac130002-66d961a2-22c0-11eb-a5a9-0242ac130002';
 
     const lat = location.geometry.lat;
     const long = location.geometry.lng;
-    const timeOffset = location.annotations.timezone.offset_sec;
 
-    const date = new Date();
-    const localOffset = new Date().getTimezoneOffset(); // in minutes
-    const localOffsetMillis = 60 * 1000 * localOffset;
-
-    const locationOffsetMillis = timeOffset * 1000;
-
-    const millisOffset = locationOffsetMillis + localOffsetMillis;
-
-    const locationTime = new Date(date.getTime() + (millisOffset));
     const startDate = new Date(locationTime.getUTCFullYear(),
     locationTime.getUTCMonth(),locationTime.getUTCDate(), 0, 0, 0, -localOffsetMillis);
 
