@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import sunriseImg from '../assets/images/sunrise.png';
 import sunsetImg from '../assets/images/sunset.png';
+import useLocalTime from '../services/hooks/useLocalTime';
 import styles from '../styles/components/SunlightTimes.module.css';
 
 export default function SunlightTimes({ location }) {
@@ -10,9 +11,16 @@ export default function SunlightTimes({ location }) {
     sunsetTime: '',
     lastLight: ''
   });
+
   const [showInfo, setShowInfo] = useState(false);
 
   const [dateHeader, setDateHeader] = useState('');
+
+  const {
+    locationTime,
+    timeOffset,
+    startDateISOString
+  } = useLocalTime(location);
 
   const getSunlightData = async () => {
     const url = 'https://api.stormglass.io/v2/astronomy/';
@@ -20,21 +28,6 @@ export default function SunlightTimes({ location }) {
 
     const lat = location.geometry.lat;
     const long = location.geometry.lng;
-    const timeOffset = location.annotations.timezone.offset_sec;
-
-    const date = new Date();
-    const localOffset = new Date().getTimezoneOffset(); // in minutes
-    const localOffsetMillis = 60 * 1000 * localOffset;
-
-    const locationOffsetMillis = timeOffset * 1000;
-
-    const millisOffset = locationOffsetMillis + localOffsetMillis;
-
-    const locationTime = new Date(date.getTime() + (millisOffset));
-    const startDate = new Date(locationTime.getUTCFullYear(),
-    locationTime.getUTCMonth(),locationTime.getUTCDate(), 0, 0, 0, -localOffsetMillis);
-
-    const isoDateString = startDate.toISOString();
 
     const localDateHeader = new Intl.DateTimeFormat('en-US',
     { dateStyle: 'full' }).format(locationTime);
@@ -42,7 +35,7 @@ export default function SunlightTimes({ location }) {
     setDateHeader(localDateHeader);
 
     try {
-      const searchUrl = `${url}point?lat=${lat}&lng=${long}&start=${isoDateString}`
+      const searchUrl = `${url}point?lat=${lat}&lng=${long}&start=${startDateISOString}`
       const response = await fetch(searchUrl, {
         headers: {
           'Authorization': apiKey
@@ -60,14 +53,18 @@ export default function SunlightTimes({ location }) {
       const sunriseDateObj = new Date(sunrise.getTime() + (sunrise.getTimezoneOffset() * 60000) + (timeOffset * 1000));
       const sunsetDateObj = new Date(sunset.getTime() + (sunset.getTimezoneOffset() * 60000) + (timeOffset * 1000));
 
-      const firstLight = `${dawnDateObj.getHours()}:${dawnDateObj.getMinutes() > 9 ? dawnDateObj.getMinutes() : '0'
-      + dawnDateObj.getMinutes()} am`;
-      const sunriseTime = `${sunriseDateObj.getHours()}:${sunriseDateObj.getMinutes() > 9 ? sunriseDateObj.getMinutes() : '0'
-      + sunriseDateObj.getMinutes()} am`;
-      const sunsetTime = `${sunsetDateObj.getHours() - 12}:${sunsetDateObj.getMinutes() > 9 ? sunsetDateObj.getMinutes() : '0'
-      + sunsetDateObj.getMinutes()} pm`;
-      const lastLight = `${duskDateObj.getHours() - 12}:${duskDateObj.getMinutes() > 9 ? duskDateObj.getMinutes() : '0'
-      + duskDateObj.getMinutes()} pm`;
+      const firstLight = `${dawnDateObj.getHours()}:${dawnDateObj.getMinutes() > 9
+        ? dawnDateObj.getMinutes()
+        : '0' + dawnDateObj.getMinutes()} am`;
+      const sunriseTime = `${sunriseDateObj.getHours()}:${sunriseDateObj.getMinutes() > 9
+        ? sunriseDateObj.getMinutes()
+        : '0' + sunriseDateObj.getMinutes()} am`;
+      const sunsetTime = `${sunsetDateObj.getHours() - 12}:${sunsetDateObj.getMinutes() > 9
+        ? sunsetDateObj.getMinutes()
+        : '0' + sunsetDateObj.getMinutes()} pm`;
+      const lastLight = `${duskDateObj.getHours() - 12}:${duskDateObj.getMinutes() > 9
+        ? duskDateObj.getMinutes()
+        : '0' + duskDateObj.getMinutes()} pm`;
 
       setsunlightData({
         firstLight: firstLight,
