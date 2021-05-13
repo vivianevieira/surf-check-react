@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
+import useLocalTime from "../services/hooks/useLocalTime";
 import styles from '../styles/components/TideData.module.css';
 
 
 export default function TideData({ location }) {
   const [tideData, setTideData] = useState([]);
 
-  const timeOffset = location.annotations.timezone.offset_sec;
+  const {
+    timeOffset,
+    startDateTideISOString,
+    endDateISOString
+  } = useLocalTime(location);
 
   const getTideData = async () => {
     const url = 'https://api.stormglass.io/v2/tide/extremes/';
@@ -14,29 +19,8 @@ export default function TideData({ location }) {
     const lat = location.geometry.lat;
     const lng = location.geometry.lng;
 
-    const date = new Date();
-    const localOffset = date.getTimezoneOffset(); // in minutes
-
-    const localOffsetMillis = 60 * 1000 * localOffset;
-
-    const locationOffsetMillis = timeOffset * 1000;
-
-    const millisOffset = locationOffsetMillis + localOffsetMillis;
-
-    const locationDate = new Date(date.getTime() + (millisOffset));
-
-    const startDate = new Date(locationDate.getFullYear(),
-    locationDate.getMonth(),locationDate.getDate(), 0, 0, 0, -millisOffset);
-    const startDateISOString = startDate.toISOString();
-
-    const endDate = new Date(locationDate.getFullYear(),
-    locationDate.getMonth(),locationDate.getDate(), 23, 59, 59, -millisOffset);
-    const endDateISOString = endDate.toISOString();
-
-
-
     try {
-      const searchUrl = `${url}point?lat=${lat}&lng=${lng}&datum=MLLW&start=${startDateISOString}&end=${endDateISOString}`;
+      const searchUrl = `${url}point?lat=${lat}&lng=${lng}&datum=MLLW&start=${startDateTideISOString}&end=${endDateISOString}`;
       const response = await fetch(searchUrl, {
         headers: {
           'Authorization': apiKey

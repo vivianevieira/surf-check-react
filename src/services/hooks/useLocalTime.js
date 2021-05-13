@@ -11,5 +11,23 @@ export default function useLocalTime(location) {
 
   const locationTime = new Date(date.getTime() + (millisOffset));
 
-  return {locationTime, timeOffset, localOffsetMillis};
+  const startDate = new Date(locationTime.getUTCFullYear(),
+  locationTime.getUTCMonth(),locationTime.getUTCDate(), 0, 0, 0, -localOffsetMillis);
+  const startDateISOString = startDate.toISOString();
+
+  const startDateTide = new Date(locationTime.getFullYear(),
+  locationTime.getMonth(),locationTime.getDate(), 0, 0, 0, -millisOffset);
+  const startDateTideISOString = startDateTide.toISOString();
+
+  const endDate = new Date(locationTime.getFullYear(),
+  locationTime.getMonth(),locationTime.getDate(), 23, 59, 59, -millisOffset);
+  const endDateISOString = endDate.toISOString();
+
+  return {
+    locationTime,
+    timeOffset,
+    startDateISOString,
+    startDateTideISOString,
+    endDateISOString
+  };
 }
