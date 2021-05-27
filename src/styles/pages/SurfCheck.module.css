@@ -9,8 +9,20 @@ p {
   width: 100%;
 }
 
+.SurfCheckModule {
+  margin: 1.5rem 0;
+  width: 100%;
+  background-color: #fff;
+}
+
+.SurfCheckWrapper {
+  display: flex;
+  padding: 1rem;
+}
+
 .SurfCheckCont {
   display: flex;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
 }
 

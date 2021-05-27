@@ -17,7 +17,6 @@
 
 .SurfDataFavIcon {
   font-size: 15pt;
-  /* margin-bottom: 0.3rem; */
   color: #979797;
 }
 
@@ -26,13 +25,16 @@
   color: #0e4da4;
 }
 
-.SurfDataCont {
-  display: flex;
-  justify-content: space-between;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #e8e8e8;
-  font-size: 9pt;
-}
+ .SurfDataCont {
+   display: flex;
+   justify-content: space-between;
+   padding: 1rem;
+   font-size: 9pt;
+ }
+
+ .SurfDataStatCont {
+   width: 150px;
+ }
 
 .SurfDataWaveHeightTitle {
   color: #cdcaca;
@@ -116,4 +118,14 @@
   .surfDataLocTitle {
   font-size: 1.5rem;
  }
+}
+
+@media screen and (max-width: 500px) {
+  .SurfDataCont {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 9pt;
+  }
 }

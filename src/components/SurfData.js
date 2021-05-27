@@ -46,9 +46,9 @@ export default function SurfData({ location, loading, surfData }) {
 
   return (
     <>
-      <MapView location={location} />
+      {/* <MapView location={location} /> */}
       <div className={styles.SurfDataCont}>
-        <div>
+        <div className={styles.SurfDataStatCont}>
           <div className={styles.SurfDataWaveHeightTitle}>
             Wave Height
           </div>
@@ -87,7 +87,7 @@ export default function SurfData({ location, loading, surfData }) {
             />
           </div>
         </div>
-        <div>
+        <div className={styles.SurfDataStatCont}>
           <div className={styles.SurfDataTempCont}>
             <div className={styles.SurfDataWaterTemp}>
               <div className={styles.SurfDataTempTitle}>
