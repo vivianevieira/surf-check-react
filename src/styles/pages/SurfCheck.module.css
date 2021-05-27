@@ -16,19 +16,25 @@ p {
 }
 
 .SurfCheckWrapper {
-  display: flex;
+  /* display: flex; */
   padding: 1rem;
 }
 
 .SurfCheckCont {
-  display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: space-between;
+  display: block;
+  width: 100%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 768px) {
+  .SurfCheckWrapper {
+    display: flex;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
   .SurfCheckCont {
-    display: block;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 }
