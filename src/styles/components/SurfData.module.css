@@ -61,9 +61,8 @@
   margin-bottom: 0.5rem;
 }
 
-.SurfDataPrimarySwellTitle,
-.SurfDataWindTitle {
-  font-size: 0.875rem;
+.SurfDataSwellsTitle {
+  font-size: 0.8rem;
   color: #cdcaca;
   font-weight: 300;
   letter-spacing: 0.5px;
@@ -118,6 +117,10 @@
   font-weight: 200;
   letter-spacing: 0.5px;
   margin-top: 0.2rem;
+}
+
+.SurfDataSwellsCont {
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 976px) {

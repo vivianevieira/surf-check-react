@@ -64,27 +64,29 @@ export default function SurfData({ location, loading, surfData }) {
               style={{ transform: `rotate(${swellDirectionValue}deg)`}}
             />
           </div>
-          <div className={styles.SurfDataPrimarySwellTitle}>
-            Secondary Swell
-          </div>
-          <div className={styles.SurfDataValues}>
-            {`${secondarySwellHeightValue}ft at ${secondarySwellPeriodValue}s ${secondarySwellDirectionValue}° `}
-            <FontAwesomeIcon
-              icon={faArrowDown}
-              size="sm"
-              style={{ transform: `rotate(${secondarySwellDirectionValue}deg)`}}
-            />
-          </div>
-          <div className={styles.SurfDataPrimarySwellTitle}>
-            Wind Swell
-          </div>
-          <div className={styles.SurfDataValues}>
-            {`${windWaveHeightValue}ft at ${windWavePeriodValue}s ${windWaveDirectionValue}° `}
-            <FontAwesomeIcon
-              icon={faArrowDown}
-              size="sm"
-              style={{ transform: `rotate(${windWaveDirectionValue}deg)`}}
-            />
+          <div className={styles.SurfDataSwellsCont}>
+            <div className={styles.SurfDataSwellsTitle}>
+              Secondary Swell
+            </div>
+            <div className={styles.SurfDataValues}>
+              {`${secondarySwellHeightValue}ft at ${secondarySwellPeriodValue}s ${secondarySwellDirectionValue}° `}
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                size="sm"
+                style={{ transform: `rotate(${secondarySwellDirectionValue}deg)`}}
+              />
+            </div>
+            <div className={styles.SurfDataSwellsTitle}>
+              Wind Swell
+            </div>
+            <div className={styles.SurfDataValues}>
+              {`${windWaveHeightValue}ft at ${windWavePeriodValue}s ${windWaveDirectionValue}° `}
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                size="sm"
+                style={{ transform: `rotate(${windWaveDirectionValue}deg)`}}
+              />
+            </div>
           </div>
         </div>
         <div className={styles.SurfDataStatCont}>
