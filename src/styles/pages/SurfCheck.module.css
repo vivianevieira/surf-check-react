@@ -15,11 +15,6 @@ p {
   background-color: #fff;
 }
 
-.SurfCheckWrapper {
-  /* display: flex; */
-  padding: 1rem;
-}
-
 .SurfCheckCont {
   display: block;
   width: 100%;

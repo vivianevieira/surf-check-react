@@ -25,16 +25,13 @@
   color: #0e4da4;
 }
 
- .SurfDataCont {
-   display: flex;
-   justify-content: space-between;
-   padding: 1rem;
-   font-size: 9pt;
- }
-
- .SurfDataStatCont {
-   width: 150px;
- }
+.SurfDataCont {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  /* border-bottom: 1px solid #e8e8e8; */
+  font-size: 9pt;
+}
 
 .SurfDataStatTitle {
   color: #cdcaca;
@@ -129,21 +126,9 @@
  }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 768px) {
   .SurfDataCont {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid #e8e8e8;
-    font-size: 9pt;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  .SurfDataCont {
-    display: flex;
-    font-size: 9pt;
-    justify-content: space-between;
-    padding-left: 2rem;
+    width: 350px;
+    padding: 0 0 0 2rem;
   }
 }
