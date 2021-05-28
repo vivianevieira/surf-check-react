@@ -21,7 +21,7 @@ export default function MapView({ location }) {
       mapboxApiAccessToken={mapboxApiKey}
       mapStyle="mapbox://styles/mapbox/streets-v11"
       {...viewport}
-      width="80%"
+      width="100%"
       height="100%"
       onViewportChange={(viewport) => setViewport(viewport)}
     >

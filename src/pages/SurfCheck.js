@@ -1,11 +1,14 @@
 import { useContext } from 'react';
+import { SurfDataContext } from '../contexts/SurfDataContext';
+
+import Loader from '../components/Loader';
 import SurfData from '../components/SurfData';
 import SunlightTimes from '../components/SunlightTimes'
-import Loader from '../components/Loader';
-import { SurfDataContext } from '../contexts/SurfDataContext';
-import styles from '../styles/pages/SurfCheck.module.css'
 import SurfCheckHeader from '../components/SurfCheckHeader';
 import TideData from '../components/TideData';
+import MapView from '../components/MapView';
+
+import styles from '../styles/pages/SurfCheck.module.css'
 
 export default function SurfCheck () {
   const { location, loading, surfData, invalidSpot } = useContext(SurfDataContext);
@@ -18,7 +21,15 @@ export default function SurfCheck () {
     (loading ? <Loader /> :
     <>
       <SurfCheckHeader location={location} />
-      <SurfData surfData={surfData} location={location} loading={loading} />
+      <div className={styles.SurfCheckCont}>
+        <div className={styles.SurfCheckModule}>
+          <div className={styles.SurfCheckWrapper}>
+            <MapView location={location} />
+            <SurfData surfData={surfData} location={location} loading={loading} />
+          </div>
+        </div>
+      </div>
+      {/* <SurfData surfData={surfData} location={location} loading={loading} /> */}
       <div className={styles.SurfCheck}>
         <div className={styles.SurfCheckCont}>
           <SunlightTimes location={location} />

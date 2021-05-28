@@ -46,10 +46,10 @@ export default function SurfData({ location, loading, surfData }) {
 
   return (
     <>
-      <MapView location={location} />
+      {/* <MapView location={location} /> */}
       <div className={styles.SurfDataCont}>
-        <div>
-          <div className={styles.SurfDataWaveHeightTitle}>
+        <div className={styles.SurfDataStatCont}>
+          <div className={styles.SurfDataStatTitle}>
             Wave Height
           </div>
           <div className={styles.SurfDataWaveHeightvalue}>
@@ -64,30 +64,32 @@ export default function SurfData({ location, loading, surfData }) {
               style={{ transform: `rotate(${swellDirectionValue}deg)`}}
             />
           </div>
-          <div className={styles.SurfDataPrimarySwellTitle}>
-            Secondary Swell
-          </div>
-          <div className={styles.SurfDataValues}>
-            {`${secondarySwellHeightValue}ft at ${secondarySwellPeriodValue}s ${secondarySwellDirectionValue}° `}
-            <FontAwesomeIcon
-              icon={faArrowDown}
-              size="sm"
-              style={{ transform: `rotate(${secondarySwellDirectionValue}deg)`}}
-            />
-          </div>
-          <div className={styles.SurfDataPrimarySwellTitle}>
-            Wind Swell
-          </div>
-          <div className={styles.SurfDataValues}>
-            {`${windWaveHeightValue}ft at ${windWavePeriodValue}s ${windWaveDirectionValue}° `}
-            <FontAwesomeIcon
-              icon={faArrowDown}
-              size="sm"
-              style={{ transform: `rotate(${windWaveDirectionValue}deg)`}}
-            />
+          <div className={styles.SurfDataSwellsCont}>
+            <div className={styles.SurfDataSwellsTitle}>
+              Secondary Swell
+            </div>
+            <div className={styles.SurfDataValues}>
+              {`${secondarySwellHeightValue}ft at ${secondarySwellPeriodValue}s ${secondarySwellDirectionValue}° `}
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                size="sm"
+                style={{ transform: `rotate(${secondarySwellDirectionValue}deg)`}}
+              />
+            </div>
+            <div className={styles.SurfDataSwellsTitle}>
+              Wind Swell
+            </div>
+            <div className={styles.SurfDataValues}>
+              {`${windWaveHeightValue}ft at ${windWavePeriodValue}s ${windWaveDirectionValue}° `}
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                size="sm"
+                style={{ transform: `rotate(${windWaveDirectionValue}deg)`}}
+              />
+            </div>
           </div>
         </div>
-        <div>
+        <div className={styles.SurfDataStatCont}>
           <div className={styles.SurfDataTempCont}>
             <div className={styles.SurfDataWaterTemp}>
               <div className={styles.SurfDataTempTitle}>
@@ -121,7 +123,7 @@ export default function SurfData({ location, loading, surfData }) {
             </div>
           </div>
           <div className={styles.SurfDataWindCont}>
-            <div className={styles.SurfDataWindTitle}>
+            <div className={styles.SurfDataStatTitle}>
               Wind
             </div>
             <div className={styles.SurfDataValues}>

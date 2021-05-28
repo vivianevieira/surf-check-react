@@ -7,7 +7,7 @@ header {
 .headerContainer {
   max-width: 575px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   height: 56px;
   display: flex;
   align-items: center;

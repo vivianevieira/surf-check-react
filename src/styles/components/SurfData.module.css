@@ -17,7 +17,6 @@
 
 .SurfDataFavIcon {
   font-size: 15pt;
-  /* margin-bottom: 0.3rem; */
   color: #979797;
 }
 
@@ -29,16 +28,17 @@
 .SurfDataCont {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #e8e8e8;
+  padding: 1rem;
+  /* border-bottom: 1px solid #e8e8e8; */
   font-size: 9pt;
 }
 
-.SurfDataWaveHeightTitle {
+.SurfDataStatTitle {
   color: #cdcaca;
   font-size: 0.875rem;
   font-weight: 300;
   letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
 }
 
 .SurfDataWaveHeightvalue {
@@ -49,7 +49,7 @@
   margin-bottom: 0.2rem;
 }
 
-.SurfDataSup{
+.SurfDataSup {
   font-size: 0.9rem;
   letter-spacing: 0;
 }
@@ -61,12 +61,13 @@
   margin-bottom: 0.5rem;
 }
 
-.SurfDataPrimarySwellTitle,
-.SurfDataWindTitle {
+.SurfDataSwellsTitle {
+  font-size: 0.8rem;
   color: #cdcaca;
   font-weight: 300;
   letter-spacing: 0.5px;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .SurfDataValues{
@@ -76,14 +77,15 @@
 
 .SurfDataTempCont {
   display: flex;
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.3rem;
 }
 
 .SurfDataTempTitle {
+  font-size: 0.875rem;
   color: #cdcaca;
   font-weight: 300;
   letter-spacing: 0.5px;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .SurfDataWaterTemp {
@@ -93,6 +95,11 @@
 .SurfDataWaterTemp,
 .SurfDataAirTemp {
   text-align: center;
+}
+
+.SurfDataWaterTemp div:nth-child(2),
+.SurfDataAirTemp div:nth-child(2) {
+  margin-bottom: 0.2rem;
 }
 
 .SurfDataWaterTempIcon {
@@ -112,8 +119,19 @@
   margin-top: 0.2rem;
 }
 
+.SurfDataSwellsCont {
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 976px) {
   .surfDataLocTitle {
   font-size: 1.5rem;
  }
+}
+
+@media screen and (min-width: 768px) {
+  .SurfDataCont {
+    width: 350px;
+    padding: 0 0 0 2rem;
+  }
 }
