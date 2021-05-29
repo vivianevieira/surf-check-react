@@ -47,7 +47,6 @@ export default function SurfData({ location, loading, surfData }) {
 
   return (
     <>
-      {/* <MapView location={location} /> */}
       <div className={styles.SurfDataCont}>
         <div className={styles.SurfDataStatCont}>
           <div className={styles.SurfDataStatTitle}>
@@ -133,7 +132,7 @@ export default function SurfData({ location, loading, surfData }) {
                 icon={faArrowDown}
                 size="sm"
                 style={{ transform: `rotate(${windDirectionValue}deg)`}}
-            />
+              />
             </div>
             <div className={styles.SurfDataWindGust}>
               {`(${gustValue}kts gusts)`}

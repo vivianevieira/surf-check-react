@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun } from '@fortawesome/free-solid-svg-icons';
+
+import styles from '../styles/components/SurfData.module.css';
+import compomentStyles from '../styles/components/UVData.module.css';
 
 export default function UVData({ location }) {
-  const [UVnow, setUVnow] = useState('');
-  const [UVmax, setUVmax] = useState('');
+  const [UVmax, setUVmax] = useState({});
 
   const getUVData = async () => {
     const url = 'https://api.openuv.io/api/v1/uv';
@@ -23,14 +27,42 @@ export default function UVData({ location }) {
       });
       const jsonData = await response.json();
 
-      console.log(Math.round(jsonData.result.uv));
-      console.log(Math.round(jsonData.result.uv_max))
-      setUVnow(Math.round(jsonData.result.uv));
-      setUVmax(Math.round(jsonData.result.uv_max));
+      console.log(jsonData.result);
+      const UVmaxResult = Math.round(jsonData.result.uv_max);
+      console.log(UVmaxResult)
+
+      let level;
+      let UVcolor;
+      if (UVmaxResult >= 0 && UVmaxResult < 3 ) {
+        level = 'Low';
+        UVcolor = '#558B2F';
+      } else if (UVmaxResult >= 3 && UVmaxResult < 6) {
+        level = 'Moderate';
+        UVcolor = '#F9A825';
+      } else if (UVmaxResult>= 6 && UVmaxResult < 8) {
+        level = 'High';
+        UVcolor = '#EF6C00';
+      } else if (UVmaxResult >= 8 && UVmaxResult < 11) {
+        level = 'Very High';
+        UVcolor = '#B71C1C';
+      } else if (UVmaxResult >= 11) {
+        level = 'Extreme';
+        UVcolor = '#6A1B9A';
+      };
+
+      setUVmax({
+        UVindex: UVmaxResult,
+        UVLevel: level,
+        UVcolor: UVcolor
+      });
     } catch (e) {
       console.log(e);
     }
   }
+
+  const myStyle = {
+        color: UVmax.UVcolor,
+      }
 
   useEffect(() => {
     getUVData();
@@ -39,8 +71,25 @@ export default function UVData({ location }) {
 
 
   return (
-    <div>
-      <p>UV Index</p>
+    <div className={styles.SurfDataSwellsCont}>
+      <div className={styles.SurfDataStatTitle}>
+        UV Index
+      </div>
+      <div className={compomentStyles.UVmaxcontainer}>
+        <FontAwesomeIcon
+        icon={faSun}
+        size="lg"
+        />
+        <div className={styles.SurfDataValues}>
+          {UVmax.UVindex}
+        </div>
+      </div>
+      <div>
+        <span style={myStyle}>{UVmax.UVLevel}</span>
+      </div>
+      <div className={styles.SurfDataWindGust}>
+        (daily highest)
+      </div>
     </div>
 
   );
