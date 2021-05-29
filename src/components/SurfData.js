@@ -5,6 +5,7 @@ import { faWater, faThermometerHalf, faArrowDown } from '@fortawesome/free-solid
 import MapView from './MapView';
 import globeImg from '../assets/images/globe.png'
 import styles from '../styles/components/SurfData.module.css';
+import UVData from './UVData';
 
 export default function SurfData({ location, loading, surfData }) {
   const { formatted } = location;
@@ -137,6 +138,7 @@ export default function SurfData({ location, loading, surfData }) {
             <div className={styles.SurfDataWindGust}>
               {`(${gustValue}kts gusts)`}
             </div>
+            <UVData location={location}/>
           </div>
         </div>
       </div>
