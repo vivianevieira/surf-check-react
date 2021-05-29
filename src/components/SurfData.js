@@ -5,6 +5,7 @@ import { faWater, faThermometerHalf, faArrowDown } from '@fortawesome/free-solid
 import MapView from './MapView';
 import globeImg from '../assets/images/globe.png'
 import styles from '../styles/components/SurfData.module.css';
+import UVData from './UVData';
 
 export default function SurfData({ location, loading, surfData }) {
   const { formatted } = location;
@@ -46,7 +47,6 @@ export default function SurfData({ location, loading, surfData }) {
 
   return (
     <>
-      {/* <MapView location={location} /> */}
       <div className={styles.SurfDataCont}>
         <div className={styles.SurfDataStatCont}>
           <div className={styles.SurfDataStatTitle}>
@@ -132,11 +132,12 @@ export default function SurfData({ location, loading, surfData }) {
                 icon={faArrowDown}
                 size="sm"
                 style={{ transform: `rotate(${windDirectionValue}deg)`}}
-            />
+              />
             </div>
             <div className={styles.SurfDataWindGust}>
               {`(${gustValue}kts gusts)`}
             </div>
+            <UVData location={location}/>
           </div>
         </div>
       </div>
