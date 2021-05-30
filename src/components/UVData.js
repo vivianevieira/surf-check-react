@@ -27,9 +27,7 @@ export default function UVData({ location }) {
       });
       const jsonData = await response.json();
 
-      console.log(jsonData.result);
       const UVmaxResult = Math.round(jsonData.result.uv_max);
-      console.log(UVmaxResult)
 
       let level;
       let UVcolor;
