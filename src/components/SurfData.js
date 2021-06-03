@@ -2,8 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWater, faThermometerHalf, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
-import MapView from './MapView';
-import globeImg from '../assets/images/globe.png'
 import styles from '../styles/components/SurfData.module.css';
 import UVData from './UVData';
 
