@@ -5,7 +5,7 @@ import { faWater, faThermometerHalf, faArrowDown } from '@fortawesome/free-solid
 import styles from '../styles/components/SurfData.module.css';
 import UVData from './UVData';
 
-export default function SurfData({ location, loading, surfData }) {
+export default function SurfData({ location, surfData }) {
   const { formatted } = location;
 
   const {

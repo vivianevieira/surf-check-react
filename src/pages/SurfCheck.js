@@ -29,7 +29,6 @@ export default function SurfCheck () {
           </div>
         </div>
       </div>
-      {/* <SurfData surfData={surfData} location={location} loading={loading} /> */}
       <div className={styles.SurfCheck}>
         <div className={styles.SurfCheckCont}>
           <SunlightTimes location={location} />
