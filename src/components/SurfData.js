@@ -2,12 +2,10 @@ import React, { useContext, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWater, faThermometerHalf, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
-import MapView from './MapView';
-import globeImg from '../assets/images/globe.png'
 import styles from '../styles/components/SurfData.module.css';
 import UVData from './UVData';
 
-export default function SurfData({ location, loading, surfData }) {
+export default function SurfData({ location, surfData }) {
   const { formatted } = location;
 
   const {

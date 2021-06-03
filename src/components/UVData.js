@@ -75,6 +75,7 @@ export default function UVData({ location }) {
       </div>
       <div className={compomentStyles.UVmaxcontainer}>
         <FontAwesomeIcon
+        style={myStyle}
         icon={faSun}
         size="lg"
         />
@@ -83,7 +84,7 @@ export default function UVData({ location }) {
         </div>
       </div>
       <div>
-        <span style={myStyle}>{UVmax.UVLevel}</span>
+        <span>{UVmax.UVLevel}</span>
       </div>
       <div className={styles.SurfDataWindGust}>
         (daily highest)
