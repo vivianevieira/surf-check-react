@@ -109,7 +109,7 @@ export default function SunlightTimes({ location }) {
       </div>
       <div className={styles.SunlightTimesData}>
         <div className={styles.SunlightTimesIcon}>
-          <div style={{ color: '#fa9308', fontSize: 20}}>
+          <div style={{ color: '#ef6c00', fontSize: 20}}>
             <FiSunset />
           </div>
         </div>
