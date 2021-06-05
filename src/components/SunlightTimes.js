@@ -92,7 +92,7 @@ export default function SunlightTimes({ location }) {
       </div>
       <div className={styles.SunlightTimesData}>
         <div className={styles.SunlightTimesIcon}>
-          <img src={sunriseImg} alt="" width="35px" />
+          <img src={sunriseImg} alt="sunrise" width="35px" />
         </div>
         <div>
           <div className={styles.SunlightTimesDataRow}>
@@ -105,7 +105,7 @@ export default function SunlightTimes({ location }) {
       </div>
       <div className={styles.SunlightTimesData}>
         <div className={styles.SunlightTimesIcon}>
-          <img src={sunsetImg} alt="" width="35px" />
+          <img src={sunsetImg} alt="sunset" width="35px" />
         </div>
         <div>
           <div className={styles.SunlightTimesDataRow}>
