@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import sunriseImg from '../assets/images/sunrise.png';
-import sunsetImg from '../assets/images/sunset.png';
+import { FiSunrise, FiSunset } from 'react-icons/fi';
+import { IconContext } from 'react-icons';
+
 import useLocalTime from '../services/hooks/useLocalTime';
+
 import styles from '../styles/components/SunlightTimes.module.css';
 
 export default function SunlightTimes({ location }) {
@@ -14,10 +16,7 @@ export default function SunlightTimes({ location }) {
 
   const [showInfo, setShowInfo] = useState(false);
 
-  const [dateHeader, setDateHeader] = useState('');
-
   const {
-    locationTime,
     timeOffset,
     startDateISOString
   } = useLocalTime(location);
@@ -28,11 +27,6 @@ export default function SunlightTimes({ location }) {
 
     const lat = location.geometry.lat;
     const long = location.geometry.lng;
-
-    const localDateHeader = new Intl.DateTimeFormat('en-US',
-    { dateStyle: 'full' }).format(locationTime);
-
-    setDateHeader(localDateHeader);
 
     try {
       const searchUrl = `${url}point?lat=${lat}&lng=${long}&start=${startDateISOString}`
@@ -88,34 +82,52 @@ export default function SunlightTimes({ location }) {
     {showInfo ?
     <div className={styles.SunlightTimesCont}>
       <div className={styles.SunlightTimesDateHeader}>
-        {dateHeader}
+        <h3 className={styles.SunlightTimesTitle}>
+          Sunlight times
+        </h3>
       </div>
       <div className={styles.SunlightTimesData}>
         <div className={styles.SunlightTimesIcon}>
-          <img src={sunriseImg} alt="" width="35px" />
+          <div style={{ color: '#ffc107', fontSize: 20}}>
+            <FiSunrise />
+          </div>
         </div>
         <div>
-          <div className={styles.SunlightTimesDataRow}>
-            First light: <span>{sunlightData.firstLight}</span>
-          </div>
-          <div className={styles.SunlightTimesDataRow}>
-            Sunrise: <span>{sunlightData.sunriseTime}</span>
-          </div>
+          <table>
+            <tbody>
+              <tr>
+                <td>First light:</td>
+                <td><span>{sunlightData.firstLight}</span></td>
+              </tr>
+              <tr>
+                <td>Sunrise:</td>
+                <td><span>{sunlightData.sunriseTime}</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div className={styles.SunlightTimesData}>
         <div className={styles.SunlightTimesIcon}>
-          <img src={sunsetImg} alt="" width="35px" />
+          <div style={{ color: '#ef6c00', fontSize: 20}}>
+            <FiSunset />
+          </div>
         </div>
         <div>
-          <div className={styles.SunlightTimesDataRow}>
-            Sunset: <span>{sunlightData.sunsetTime}</span>
-          </div>
-          <div className={styles.SunlightTimesDataRow}>
-            Last light: <span>{sunlightData.lastLight}</span>
-          </div>
+          <table>
+            <tbody>
+              <tr>
+                <td>Sunset:</td>
+                <td><span>{sunlightData.sunsetTime}</span></td>
+              </tr>
+              <tr>
+                <td>Last light:</td>
+                <td><span>{sunlightData.lastLight}</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+        </div>
     </div>
     : null}
     </>

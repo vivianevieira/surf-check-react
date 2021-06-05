@@ -1,15 +1,17 @@
 .header {
-  font-family: "Futura-Surfline", Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 12px;
 }
 
 .container {
   width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 5%);
   font-size: 0.875rem;
   letter-spacing: 0.5px;
+  padding: 1rem;
 }
 
 .title {
@@ -39,6 +41,7 @@
 
 .tableCont table {
   width: 90%;
+  text-align: center;
 }
 
 @media screen and (max-width: 500px) {

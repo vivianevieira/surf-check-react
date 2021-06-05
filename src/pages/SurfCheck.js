@@ -9,6 +9,7 @@ import TideData from '../components/TideData';
 import MapView from '../components/MapView';
 
 import styles from '../styles/pages/SurfCheck.module.css'
+import LocalDateHeader from '../components/LocalDateHeader';
 
 export default function SurfCheck () {
   const { location, loading, surfData, invalidSpot } = useContext(SurfDataContext);
@@ -21,6 +22,7 @@ export default function SurfCheck () {
     (loading ? <Loader /> :
     <>
       <SurfCheckHeader location={location} />
+      <LocalDateHeader location={location} />
       <div className={styles.SurfCheckCont}>
         <div className={styles.SurfCheckModule}>
           <div className={styles.SurfCheckWrapper}>

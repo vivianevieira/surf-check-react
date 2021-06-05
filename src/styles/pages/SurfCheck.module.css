@@ -5,14 +5,14 @@ p {
 
 .SurfCheck {
   display: block;
-  padding: 1.5rem 2rem 3rem;
   width: 100%;
 }
 
 .SurfCheckModule {
-  margin: 1.5rem 0;
   width: 100%;
   background-color: #fff;
+  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 5%);
+  margin-bottom: 1.5rem;
 }
 
 .SurfCheckCont {
