@@ -99,12 +99,18 @@ export default function SunlightTimes({ location }) {
           </div>
         </div>
         <div>
-          <div className={styles.SunlightTimesDataRow}>
-            First light: <span>{sunlightData.firstLight}</span>
-          </div>
-          <div className={styles.SunlightTimesDataRow}>
-            Sunrise: <span>{sunlightData.sunriseTime}</span>
-          </div>
+          <table>
+            <tbody>
+              <tr>
+                <td>First light:</td>
+                <td><span>{sunlightData.firstLight}</span></td>
+              </tr>
+              <tr>
+                <td>Sunrise:</td>
+                <td><span>{sunlightData.sunriseTime}</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div className={styles.SunlightTimesData}>
@@ -114,14 +120,20 @@ export default function SunlightTimes({ location }) {
           </div>
         </div>
         <div>
-          <div className={styles.SunlightTimesDataRow}>
-            Sunset: <span>{sunlightData.sunsetTime}</span>
-          </div>
-          <div className={styles.SunlightTimesDataRow}>
-            Last light: <span>{sunlightData.lastLight}</span>
-          </div>
+          <table>
+            <tbody>
+              <tr>
+                <td>Sunset:</td>
+                <td><span>{sunlightData.sunsetTime}</span></td>
+              </tr>
+              <tr>
+                <td>Last light:</td>
+                <td><span>{sunlightData.lastLight}</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+        </div>
     </div>
     : null}
     </>

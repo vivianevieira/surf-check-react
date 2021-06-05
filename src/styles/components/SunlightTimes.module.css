@@ -20,11 +20,12 @@
   align-items: center;
 }
 
-.SunlightTimesDataRow {
+.SunlightTimesData td {
   padding: 0.2rem;
 }
 
-.SunlightTimesData span {
+.SunlightTimesData span,
+table span {
   font-weight: 200;
 }
 

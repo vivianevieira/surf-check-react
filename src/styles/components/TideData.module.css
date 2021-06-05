@@ -42,6 +42,7 @@
 
 .tableCont table {
   width: 90%;
+  text-align: center;
 }
 
 @media screen and (max-width: 500px) {
