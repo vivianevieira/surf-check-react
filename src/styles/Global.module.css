@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+body {
+  background-color: #FBFCFD;
+}
+
 body, input, button {
   font-family: 'Inter', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

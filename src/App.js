@@ -20,19 +20,19 @@ function App() {
         <Header />
         <SurfDataProvider>
         <LocSearchProvider>
-        <div className={styles.container}>
-          <Switch>
-            <Route path="/favorites">
-              <Favorites />
-            </Route>
-            <Route path="/surfcheck">
-              <SurfCheck />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
+          <div className={styles.container}>
+            <Switch>
+              <Route path="/favorites">
+                <Favorites />
+              </Route>
+              <Route path="/surfcheck">
+                <SurfCheck />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
         </LocSearchProvider>
         </SurfDataProvider>
         <BottomNav />
