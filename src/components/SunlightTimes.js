@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import sunriseImg from '../assets/images/sunrise.png';
-import sunsetImg from '../assets/images/sunset.png';
+import { FiSunrise, FiSunset } from 'react-icons/fi';
+import { IconContext } from 'react-icons';
+
 import useLocalTime from '../services/hooks/useLocalTime';
+
 import styles from '../styles/components/SunlightTimes.module.css';
 
 export default function SunlightTimes({ location }) {
@@ -92,7 +94,9 @@ export default function SunlightTimes({ location }) {
       </div>
       <div className={styles.SunlightTimesData}>
         <div className={styles.SunlightTimesIcon}>
-          <img src={sunriseImg} alt="sunrise" width="35px" />
+          <div style={{ color: '#ffc107', fontSize: 20}}>
+            <FiSunrise />
+          </div>
         </div>
         <div>
           <div className={styles.SunlightTimesDataRow}>
@@ -105,7 +109,9 @@ export default function SunlightTimes({ location }) {
       </div>
       <div className={styles.SunlightTimesData}>
         <div className={styles.SunlightTimesIcon}>
-          <img src={sunsetImg} alt="sunset" width="35px" />
+          <div style={{ color: '#fa9308', fontSize: 20}}>
+            <FiSunset />
+          </div>
         </div>
         <div>
           <div className={styles.SunlightTimesDataRow}>
