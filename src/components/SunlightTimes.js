@@ -16,10 +16,7 @@ export default function SunlightTimes({ location }) {
 
   const [showInfo, setShowInfo] = useState(false);
 
-  const [dateHeader, setDateHeader] = useState('');
-
   const {
-    locationTime,
     timeOffset,
     startDateISOString
   } = useLocalTime(location);
@@ -30,11 +27,6 @@ export default function SunlightTimes({ location }) {
 
     const lat = location.geometry.lat;
     const long = location.geometry.lng;
-
-    const localDateHeader = new Intl.DateTimeFormat('en-US',
-    { dateStyle: 'full' }).format(locationTime);
-
-    setDateHeader(localDateHeader);
 
     try {
       const searchUrl = `${url}point?lat=${lat}&lng=${long}&start=${startDateISOString}`
@@ -90,7 +82,9 @@ export default function SunlightTimes({ location }) {
     {showInfo ?
     <div className={styles.SunlightTimesCont}>
       <div className={styles.SunlightTimesDateHeader}>
-        {dateHeader}
+        <h3 className={styles.SunlightTimesTitle}>
+          Sunlight times
+        </h3>
       </div>
       <div className={styles.SunlightTimesData}>
         <div className={styles.SunlightTimesIcon}>
