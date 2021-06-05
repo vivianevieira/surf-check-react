@@ -1,7 +1,11 @@
 .SunlightTimesCont {
   width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 5%);
   font-size: 0.875rem;
   letter-spacing: 0.5px;
+  padding: 1rem;
+  margin-right: 1rem;
 }
 
 .SunlightTimesDateHeader {
