@@ -1,5 +1,66 @@
 import { useEffect } from "react";
 import useLocalTime from "../services/hooks/useLocalTime";
+import Chart from 'react-apexcharts';
+
+import styles from '../styles/components/WindForecast.module.css';
+
+const options = {
+  chart: {
+    toolbar: {
+      show: false
+    }
+  },
+  grid: {
+    show: false
+  },
+  dataLabels: {
+    enabled: true,
+    style: {
+      fontSize: '12',
+      fontFamily: 'Inter',
+      fontWeight: '400'
+    }
+  },
+  stroke: {
+     show: false,
+     curve: 'smooth',
+     width: 2
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      type: 'vertical',
+      gradientToColors: [ '#fd8235'],
+      shadeIntensity: 1,
+      opacityFrom: 1,
+      opacityTo: 1,
+      stops: [0, 90, 100]
+    }
+  },
+  xaxis: {
+    type: 'category',
+    categories: [
+      '6am',
+      '9am',
+      '12pm',
+      '3pm',
+      '6pm',
+      '9pm'
+    ]
+  },
+  yaxis: {
+    show: false,
+    min: 1,
+    max: 15,
+        }
+}
+
+const series = [
+  {
+    name: 'series1',
+    data: [7,9,10,10,9,8]
+  }
+];
 
 export default function WindForecast({ location }) {
   const {
@@ -42,7 +103,17 @@ export default function WindForecast({ location }) {
   }, []);
 
   return (
-    <div>Wind forecast</div>
+    <div className={styles.container}>
+      <div>
+        <h3 className={styles.header}>
+          Wind (kts)
+        </h3>
+      </div>
+      <div>
+        <Chart options={options} series={series} type="line" height={160} />
+      </div>
+
+    </div>
 
   );
 }
