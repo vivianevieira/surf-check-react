@@ -10,6 +10,7 @@ import MapView from '../components/MapView';
 
 import styles from '../styles/pages/SurfCheck.module.css'
 import LocalDateHeader from '../components/LocalDateHeader';
+import WindForecast from '../components/WindForecast';
 
 export default function SurfCheck () {
   const { location, loading, surfData, invalidSpot } = useContext(SurfDataContext);
@@ -35,6 +36,7 @@ export default function SurfCheck () {
         <div className={styles.SurfCheckCont}>
           <SunlightTimes location={location} />
           <TideData location={location} />
+          <WindForecast location={location} />
         </div>
       </div>
      </>
