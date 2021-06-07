@@ -46,19 +46,52 @@ const options = {
       '3pm',
       '6pm',
       '9pm'
-    ]
+    ],
+    labels: {
+      style: {
+        fontSize: '9'
+      }
+    }
   },
   yaxis: {
     show: false,
     min: 1,
     max: 15,
+  },
+  tooltip: {
+    shared: true,
+    intersect: false,
+    y: [{
+      formatter: function (y) {
+        if(typeof y !== "undefined") {
+          return  y.toFixed(0) + "kts";
         }
+        return y;
+      }
+    }, {
+      formatter: function (y) {
+        if(typeof y !== "undefined") {
+          return  y.toFixed(0) + "deg";
+        }
+        return y;
+      }
+    }]
+  }
 }
 
 const series = [
   {
-    name: 'series1',
+    name: 'speed',
+    type: 'line',
     data: [7,9,10,10,9,8]
+  },
+  {
+    name: 'direction',
+    data: [346.28,338.52,328.22,325.35,339.26,320.04]
+  },
+  {
+    name: '',
+    data: []
   }
 ];
 
