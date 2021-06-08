@@ -5,6 +5,7 @@ import styles from '../styles/components/TideData.module.css';
 
 export default function TideData({ location }) {
   const [tideData, setTideData] = useState([]);
+  const [showInfo, setShowInfo] = useState(false);
 
   const {
     timeOffset,
@@ -31,6 +32,7 @@ export default function TideData({ location }) {
       const tideDataArray = jsonData.data;
       setTideData(tideDataArray);
 
+      setShowInfo(!showInfo);
     } catch (e) {
       console.log(e);
     }
@@ -41,30 +43,34 @@ export default function TideData({ location }) {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>
-        <h3 className={styles.header}>Tide</h3>
+    <>
+      {showInfo ?
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <h3 className={styles.header}>Tide</h3>
+        </div>
+        <div className={styles.tableCont}>
+        <table>
+          <tbody>
+            {tideData.map(tide => (
+              <tr key={tide.time}>
+                <td>{tide.type}</td>
+                <td>
+                  {new Intl.DateTimeFormat('default', {
+                    hour: 'numeric',
+                    minute: 'numeric'
+                  }).format(new Date(new Date(tide.time).getTime() +
+                  (new Date(tide.time).getTimezoneOffset() * 60000) +
+                  (timeOffset * 1000)))}
+                </td>
+                <td>{Math.round((tide.height * 3.281) * 100)/100}ft</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        </div>
       </div>
-      <div className={styles.tableCont}>
-      <table>
-        <tbody>
-          {tideData.map(tide => (
-            <tr key={tide.time}>
-              <td>{tide.type}</td>
-              <td>
-                {new Intl.DateTimeFormat('default', {
-                  hour: 'numeric',
-                  minute: 'numeric'
-                }).format(new Date(new Date(tide.time).getTime() +
-                (new Date(tide.time).getTimezoneOffset() * 60000) +
-                (timeOffset * 1000)))}
-              </td>
-              <td>{Math.round((tide.height * 3.281) * 100)/100}ft</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </div>
-    </div>
+      : null}
+    </>
   );
 }

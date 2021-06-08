@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useLocalTime from "../services/hooks/useLocalTime";
 import Chart from 'react-apexcharts';
 
@@ -15,6 +15,7 @@ const options = {
   },
   dataLabels: {
     enabled: true,
+    enabledOnSeries: [0],
     style: {
       fontSize: '12',
       fontFamily: 'Inter',
@@ -22,20 +23,9 @@ const options = {
     }
   },
   stroke: {
-     show: false,
+     show: true,
      curve: 'smooth',
      width: 2
-  },
-  fill: {
-    type: "gradient",
-    gradient: {
-      type: 'vertical',
-      gradientToColors: [ '#fd8235'],
-      shadeIntensity: 1,
-      opacityFrom: 1,
-      opacityTo: 1,
-      stops: [0, 90, 100]
-    }
   },
   xaxis: {
     type: 'category',
@@ -56,7 +46,7 @@ const options = {
   yaxis: {
     show: false,
     min: 1,
-    max: 15,
+    max: 20,
   },
   tooltip: {
     shared: true,
@@ -71,31 +61,31 @@ const options = {
     }, {
       formatter: function (y) {
         if(typeof y !== "undefined") {
-          return  y.toFixed(0) + "deg";
+          return  y.toFixed(0) + "°";
         }
         return y;
       }
-    }]
+    }, {
+      formatter: function (y) {
+        if(typeof y !== "undefined") {
+          return  y.toFixed(0) + "kts gusts";
+        }
+        return y;
+      }
+    }],
+    marker: {
+      show: false
+    }
+  },
+  legend: {
+    show: false
   }
 }
 
-const series = [
-  {
-    name: 'speed',
-    type: 'line',
-    data: [7,9,10,10,9,8]
-  },
-  {
-    name: 'direction',
-    data: [346.28,338.52,328.22,325.35,339.26,320.04]
-  },
-  {
-    name: '',
-    data: []
-  }
-];
-
 export default function WindForecast({ location }) {
+  const [series, setSeries] = useState([]);
+  const [showInfo, setShowInfo] = useState(false);
+
   const {
     startDateTideISOString,
     endDateISOString
@@ -122,10 +112,37 @@ export default function WindForecast({ location }) {
       });
       const jsonData = await response.json();
 
-      console.log(jsonData)
-      // const tideDataArray = jsonData.data;
-      // setTideData(tideDataArray);
+      const windSpeedArray = [];
+      const windDirectionArray = [];
+      const windGustArray = [];
 
+      jsonData.hours
+        .filter((el, i) => i == 6 || i == 9 || i == 12 || i == 15 || i == 18 || i == 20)
+        .forEach((el) => {
+          windSpeedArray.push(Math.round(el.windSpeed.noaa * 1.944));
+          windDirectionArray.push(el.windDirection.noaa);
+          windGustArray.push(Math.round(el.gust.noaa * 1.944));
+        })
+
+      const newChartSeries = [
+        {
+          name: 'speed',
+          type: 'line',
+          data: windSpeedArray
+        },
+        {
+          name: 'direction',
+          data: windDirectionArray
+        },
+        {
+          name: 'gusts',
+          data: windGustArray
+        }
+      ];
+
+      setSeries(newChartSeries);
+
+      setShowInfo(!showInfo);
     } catch (e) {
       console.log(e);
     }
@@ -136,17 +153,19 @@ export default function WindForecast({ location }) {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div>
-        <h3 className={styles.header}>
-          Wind (kts)
-        </h3>
-      </div>
-      <div>
-        <Chart options={options} series={series} type="line" height={160} />
-      </div>
-
-    </div>
-
+    <>
+      {showInfo ?
+        <div className={styles.container}>
+          <div>
+            <h3 className={styles.header}>
+              Wind (kts)
+            </h3>
+          </div>
+          <div>
+            <Chart options={options} series={series} type="line" height={160} />
+          </div>
+        </div>
+      : null}
+    </>
   );
 }

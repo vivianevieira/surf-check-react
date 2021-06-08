@@ -25,9 +25,7 @@ p {
     display: flex;
     padding: 1rem;
   }
-}
 
-@media screen and (min-width: 500px) {
   .SurfCheckCont {
     display: flex;
     justify-content: space-between;

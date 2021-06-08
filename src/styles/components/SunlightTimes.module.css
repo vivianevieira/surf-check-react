@@ -5,13 +5,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.5px;
   padding: 1rem;
-  margin-right: 1rem;
 }
-
-/* .SunlightTimesDateHeader {
-  text-align: center;
-  font-weight: 300;
-} */
 
 .SunlightTimesTitle {
   font-size: 14px;
@@ -38,4 +32,11 @@ table span {
 
 .SunlightTimesIcon {
   margin-right: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .SunlightTimesCont {
+    flex: 1;
+    margin: 0 1rem 0 0;
+  }
 }
