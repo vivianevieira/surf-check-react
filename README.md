@@ -31,3 +31,4 @@ Try the application live at https://surf-check.netlify.app/.
 ## preview
 
 ![Image of app](https://surf-check.netlify.app/surf_check_screenshot.png)
+![Animation of app](https://surf-check.netlify.app/surf-check-gif.gif)
