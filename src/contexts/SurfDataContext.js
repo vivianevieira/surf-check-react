@@ -36,6 +36,7 @@ export function SurfDataProvider(props) {
       })
 
       const data = await response.json();
+      console.log(data);
 
       const surfDataNow = data.hours[0];
 

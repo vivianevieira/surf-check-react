@@ -13,8 +13,8 @@ const locationsList = [
   {
     spotName: 'Sunset Beach, Hawaii USA',
     geometry: {
-      lat: 21.6707387,
-      lng: -158.0455857
+      lat: 21.6709,
+      lng: -158.045341
     },
     countryFlag: 'us'
   },
@@ -27,12 +27,20 @@ const locationsList = [
     countryFlag: 'au'
   },
     {
-    spotName: 'Trestles Beach, CA USA',
+    spotName: 'Punta Roca, El Salvador',
     geometry: {
-      lat: 33.5111848,
-      lng: -117.6849323
+      lat: 13.481851,
+      lng: -89.324228
     },
-    countryFlag: 'us'
+    countryFlag: 'sv'
+  },
+    {
+    spotName: 'Uluwatu, Bali, Indonesia',
+    geometry: {
+      lat: -8.83143,
+      lng: 115.08702
+    },
+    countryFlag: 'id'
   },
    {
     spotName: 'Swamis Beach, CA USA',
