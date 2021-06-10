@@ -9,6 +9,7 @@ export default function LocationSearch() {
 
   return (
     <>
+      <h1 className={styles.locationSearchTitle}>Search for a surf spot:</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className={styles.locationSearchContainer}>
           <input
