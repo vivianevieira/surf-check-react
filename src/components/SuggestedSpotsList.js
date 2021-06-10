@@ -11,14 +11,6 @@ const locationsList = [
     countryFlag: 'za'
   },
   {
-    spotName: 'Sunset Beach, Hawaii USA',
-    geometry: {
-      lat: 21.6709,
-      lng: -158.045341
-    },
-    countryFlag: 'us'
-  },
-  {
     spotName: 'Kirra, Queensland, Australia',
     geometry: {
       lat: -28.1676805,
