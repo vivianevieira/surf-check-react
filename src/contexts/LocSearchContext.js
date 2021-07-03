@@ -4,7 +4,7 @@ export const LocSearchContext = React.createContext();
 
 export function LocSearchProvider(props) {
   let url = 'https://api.opencagedata.com/geocode/v1/json';
-  const apiKey = '2338c18f4b274400b9a2969d91cba7c7';
+  const apiKey = process.env.REACT_APP_OPENCAGE_API_KEY;
 
   const [locations, setLocations] = useState([])
   const [search, setSearch] = useState('');

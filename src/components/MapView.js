@@ -12,7 +12,7 @@ export default function MapView({ location }) {
     zoom: 8
   });
 
-  const mapboxApiKey = 'pk.eyJ1Ijoidml2aWFuZXZpZWlyYSIsImEiOiJja29lbXdpM2cwYm1wMnVucTlwenh5eHFrIn0.ajI8dcsxTu-7r1_o8zprqw';
+  const mapboxApiKey = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
   return (
     <>

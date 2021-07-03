@@ -10,7 +10,7 @@ export default function UVData({ location }) {
 
   const getUVData = async () => {
     const url = 'https://api.openuv.io/api/v1/uv';
-    const apiKey = 'bcd6b978d838b85f76d8f466cb321d39';
+    const apiKey = process.env.REACT_APP_OPENUV_API_KEY;
 
     const lat = location.geometry.lat;
     const long = location.geometry.lng;
