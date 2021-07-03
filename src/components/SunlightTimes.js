@@ -23,7 +23,7 @@ export default function SunlightTimes({ location }) {
 
   const getSunlightData = async () => {
     const url = 'https://api.stormglass.io/v2/astronomy/';
-    const apiKey = '66d9612a-22c0-11eb-a5a9-0242ac130002-66d961a2-22c0-11eb-a5a9-0242ac130002';
+    const apiKey = process.env.REACT_APP_STORMGLASS_API;
 
     const lat = location.geometry.lat;
     const long = location.geometry.lng;
